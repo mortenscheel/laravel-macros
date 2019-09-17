@@ -1,8 +1,7 @@
 {
     "name": "mortenscheel/laravel-macros",
-    "description": ":description",
-    "license": "license",
-    "version": "0.1",
+    "description": "Useful Laravel macros",
+    "license": "MIT",
     "authors": [
         {
             "name": "Morten Scheel",
