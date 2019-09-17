@@ -1,0 +1,47 @@
+{
+    "name": "mortenscheel/laravel-macros",
+    "description": ":description",
+    "license": "license",
+    "version": "0.1",
+    "authors": [
+        {
+            "name": "Morten Scheel",
+            "email": "morten@mortenscheel.com"
+        }
+    ],
+    "homepage": "https://github.com/mortenscheel/laravel-macros",
+    "keywords": [
+        "Laravel",
+        "Macros",
+        "LaravelMacros"
+    ],
+    "require": {
+        "illuminate/support": "~5|^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MortenScheel\\LaravelMacros\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MortenScheel\\LaravelMacros\\Tests\\": "tests"
+        }
+    },
+    "suggest": {
+        "tutorigo/laravel-ide-macros": "Get IDE auto-completion for macros"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MortenScheel\\LaravelMacros\\LaravelMacrosServiceProvider"
+            ]
+        }
+    }
+}
