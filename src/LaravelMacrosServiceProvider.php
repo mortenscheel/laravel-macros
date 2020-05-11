@@ -7,6 +7,7 @@ use MortenScheel\LaravelMacros\Mixins\CarbonMixin;
 use MortenScheel\LaravelMacros\Mixins\CollectionMixin;
 use MortenScheel\LaravelMacros\Mixins\FilesystemMixin;
 use MortenScheel\LaravelMacros\Mixins\QueryBuilderMixin;
+use MortenScheel\LaravelMacros\Mixins\EloquentQueryBuilderMixin;
 use MortenScheel\LaravelMacros\Mixins\ResponseMixin;
 
 class LaravelMacrosServiceProvider extends ServiceProvider
@@ -42,6 +43,7 @@ class LaravelMacrosServiceProvider extends ServiceProvider
             \Illuminate\Support\Collection::mixin(new CollectionMixin);
             \Illuminate\Support\Carbon::mixin(new CarbonMixin);
             \Illuminate\Database\Query\Builder::mixin(new QueryBuilderMixin);
+            \Illuminate\Database\Eloquent\Builder::mixin(new EloquentQueryBuilderMixin);
             \Illuminate\Filesystem\Filesystem::mixin(new FilesystemMixin);
             \File::mixin(new FilesystemMixin);
             \Illuminate\Http\Response::mixin(new ResponseMixin);
