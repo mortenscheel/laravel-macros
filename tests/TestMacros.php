@@ -140,9 +140,10 @@ class TestMacros extends TestCase
 
     public function testQueryBuilderInlineQuery()
     {
-        $query = DB::table('my_table')->where('id', '>', 1)->where('created_at', '<=', now()->startOfDay());
+        $date = now()->startOfDay()->toDateTimeString();
+        $query = DB::table('my_table')->where('id', '>', 1)->where('created_at', '<=', $date);
         $inline = $query->inlineQuery();
-        $expected = "select * from `my_table` where `id` > '1' and `created_at` <= '2019-09-17 00:00:00'";
+        $expected = "select * from `my_table` where `id` > '1' and `created_at` <= '$date'";
         $this->assertEquals($expected, $inline);
     }
 
