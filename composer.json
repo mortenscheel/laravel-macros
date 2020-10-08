@@ -2,7 +2,7 @@
     "name": "mortenscheel/laravel-macros",
     "description": "Useful Laravel macros",
     "license": "MIT",
-    "version": "1.0",
+    "version": "1.1",
     "authors": [
         {
             "name": "Morten Scheel",
@@ -16,7 +16,7 @@
         "LaravelMacros"
     ],
     "require": {
-        "illuminate/support": "~5|^6.0|^7"
+        "illuminate/support": "~5|^6.0|^7|^8"
     },
     "require-dev": {
         "phpunit/phpunit": "~8.0",
