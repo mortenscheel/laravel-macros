@@ -16,8 +16,13 @@ class QueryBuilderMixin
          */
         return function (): string {
             $sql = $this->toSql();
-            $bindings = collect($this->getBindings())->map(function ($value) {
-                return sprintf("'%s'", $value instanceof \DateTime ? $value->format('Y-m-d H:i:s') : $value);
+            $pdo = app('db')->connection()->getPdo();
+            $bindings = collect($this->getBindings())->map(function($value) use ($pdo) {
+                if ($value instanceof \DateTimeInterface) {
+                    $value = $value->format('Y-m-d H:i:s');
+                }
+
+                return $pdo->quote($value);
             })->toArray();
 
             return \Illuminate\Support\Str::replaceArray('?', $bindings, $sql);

@@ -5,10 +5,11 @@ namespace MortenScheel\LaravelMacros;
 use Illuminate\Support\ServiceProvider;
 use MortenScheel\LaravelMacros\Mixins\CarbonMixin;
 use MortenScheel\LaravelMacros\Mixins\CollectionMixin;
+use MortenScheel\LaravelMacros\Mixins\CommandMixin;
 use MortenScheel\LaravelMacros\Mixins\FilesystemMixin;
 use MortenScheel\LaravelMacros\Mixins\QueryBuilderMixin;
-use MortenScheel\LaravelMacros\Mixins\EloquentQueryBuilderMixin;
 use MortenScheel\LaravelMacros\Mixins\ResponseMixin;
+use MortenScheel\LaravelMacros\Mixins\StrMixin;
 
 class LaravelMacrosServiceProvider extends ServiceProvider
 {
@@ -43,11 +44,13 @@ class LaravelMacrosServiceProvider extends ServiceProvider
             \Illuminate\Support\Collection::mixin(new CollectionMixin);
             \Illuminate\Support\Carbon::mixin(new CarbonMixin);
             \Illuminate\Database\Query\Builder::mixin(new QueryBuilderMixin);
-            \Illuminate\Database\Eloquent\Builder::mixin(new EloquentQueryBuilderMixin);
+            \Illuminate\Database\Eloquent\Builder::mixin(new QueryBuilderMixin);
             \Illuminate\Filesystem\Filesystem::mixin(new FilesystemMixin);
             \File::mixin(new FilesystemMixin);
             \Illuminate\Http\Response::mixin(new ResponseMixin);
             \Response::mixin(new ResponseMixin);
+            \Illuminate\Support\Str::mixin(new StrMixin);
+            \Illuminate\Console\Command::mixin(new CommandMixin);
         } catch (\ReflectionException $e) {
         }
     }
